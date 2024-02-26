@@ -5,14 +5,12 @@ void setup(){
   analogReadResolution(14); //change to 14-bit resolution
 }
 
+int adc[]{A0,A1,A2,A3,A4,A5};
 int read[6];
 void loop(){
-  read[0] = analogRead(A0); // returns a value between 0-16383
-  read[1] = analogRead(A1); // returns a value between 0-16383
-  read[2] = analogRead(A2); // returns a value between 0-16383
-  read[3] = analogRead(A3); // returns a value between 0-16383
-  read[4] = analogRead(A4); // returns a value between 0-16383
-  read[5] = analogRead(A5); // returns a value between 0-16383
+  for (int i=0;i<6;i++){
+    read[i]=analogRead(adc[i]);
+  }
   for (int i=0;i<6;i++){
     Serial.print(read[i]);
     if (i<5){Serial.print(",");}
